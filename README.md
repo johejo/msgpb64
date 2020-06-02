@@ -1,5 +1,10 @@
 # msgpb64
 
+[![CI](https://github.com/johejo/msgpb64/workflows/ci/badge.svg)](https://github.com/johejo/msgpb64/actions?query=workflow%3Aci)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/johejo/msgpb64)
+[![codecov](https://codecov.io/gh/johejo/msgpb64/branch/master/graph/badge.svg)](https://codecov.io/gh/johejo/msgpb64)
+[![Go Report Card](https://goreportcard.com/badge/github.com/johejo/msgpb64)](https://goreportcard.com/report/github.com/johejo/msgpb64)
+
 ## Description
 
 Package msgpb64 provides encoder/decoder that combines msgpack and base64 to serialize/deserialize any structure as a string.
