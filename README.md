@@ -76,12 +76,12 @@ $ go test -bench . -benchmem
 goos: linux
 goarch: amd64
 pkg: github.com/johejo/msgpb64
-Benchmark_msgpb64_one-16          471180              4478 ns/op            8013 B/op         20 allocs/op
-Benchmark_json_one-16            1000000              1676 ns/op            1080 B/op         11 allocs/op
-Benchmark_msgpb64_large-16          9640            107349 ns/op           56837 B/op        170 allocs/op
-Benchmark_json_large-16             9469            137980 ns/op           43953 B/op        499 allocs/op
+Benchmark_msgpb64_one-16          505256              5891 ns/op            7932 B/op         16 allocs/op
+Benchmark_json_one-16             950263              1505 ns/op            1080 B/op         11 allocs/op
+Benchmark_msgpb64_large-16         15318             76008 ns/op           38228 B/op         31 allocs/op
+Benchmark_json_large-16             9210            123827 ns/op           43986 B/op        499 allocs/op
 PASS
-ok      github.com/johejo/msgpb64       7.141s
+ok      github.com/johejo/msgpb64       7.562s
 ```
 
 ## License

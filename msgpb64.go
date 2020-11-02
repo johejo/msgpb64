@@ -5,8 +5,9 @@ import (
 	"bytes"
 	"encoding/base64"
 	"io"
+	"sync"
 
-	"github.com/vmihailenco/msgpack/v4"
+	"github.com/vmihailenco/msgpack/v5"
 )
 
 // Decoder describes decoder for msgpack and base64.
@@ -37,13 +38,23 @@ func NewEncoder(enc *base64.Encoding, w io.Writer) *Encoder {
 
 // Encode encodes a stream with msgpack and base64 to a value.
 func (e *Encoder) Encode(v interface{}) error {
-	var buf bytes.Buffer
-	if err := msgpack.NewEncoder(&buf).Encode(v); err != nil {
+	buf := pool.Get().(*bytes.Buffer)
+	defer func() {
+		buf.Reset()
+		pool.Put(buf)
+	}()
+	if err := msgpack.NewEncoder(buf).Encode(v); err != nil {
 		return err
 	}
 	b64e := base64.NewEncoder(e.enc, e.w)
-	if _, err := io.Copy(b64e, &buf); err != nil {
+	if _, err := io.Copy(b64e, buf); err != nil {
 		return err
 	}
 	return b64e.Close()
+}
+
+var pool = sync.Pool{
+	New: func() interface{} {
+		return new(bytes.Buffer)
+	},
 }
