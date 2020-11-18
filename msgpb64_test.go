@@ -26,9 +26,9 @@ func Test_msgpb64(t *testing.T) {
 	}
 
 	s := buf.String()
-	const want = "gqNGb2+jZm9vo0JhctMAAAAAAAAAYw=="
+	const want = "gqNGb2+jZm9vo0JhcmM="
 	if s != want {
-		t.Fatalf("invalid encode result: want=%s, got=%s", want, s)
+		t.Errorf("invalid encode result: want=%s, got=%s", want, s)
 	}
 
 	var vv test
@@ -36,7 +36,7 @@ func Test_msgpb64(t *testing.T) {
 		t.Fatal(err)
 	}
 	if diff := cmp.Diff(v, vv); diff != "" {
-		t.Fatal(diff)
+		t.Error(diff)
 	}
 }
 

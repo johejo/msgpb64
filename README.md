@@ -54,7 +54,7 @@ func Example() {
 	fmt.Printf("%v", vv)
 
 	// Output:
-	// gqNGb2+jZm9vo0JhctMAAAAAAAAAYw==
+	// gqNGb2+jZm9vo0JhcmM=
 	// {foo 99}
 }
 ```
