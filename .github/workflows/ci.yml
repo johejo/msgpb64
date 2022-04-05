@@ -31,4 +31,4 @@ jobs:
           go test -cover -coverprofile coverage.txt -race -v ./...
       - run: |
           go test -bench . -benchmem
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v3
